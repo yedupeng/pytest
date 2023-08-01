@@ -29,3 +29,11 @@ class Common(WebPage):
     def enter_safety_Telnet_page(self):
         self.is_click(COMMON['安全'])
         self.is_click(COMMON['安全-Telnet配置'])
+    
+    @allure.step("进入应用-语音接口配置-配置页面-宽带电话高级设置")
+    def enter_voip_Senior_page(self):
+        self.is_click(COMMON['应用'])
+        self.is_click(COMMON['语音接口配置'])
+        self.is_click(COMMON['宽带电话高级设置'])
+
+    
