@@ -1,0 +1,11 @@
+# @FileName：login.yaml
+# @Description：登录页页面元素
+# @Author：Huang Junxiong
+# @Time：2023/6/29 上午11:43
+# @Department：测试组
+
+
+用户名输入框: "xpath==//*[@data-test-id=\"username\"]"
+密码输入框: "id==logincode"
+登录按钮: "id==loginSubmit"
+设备注册按钮: "id==gotoRegister"

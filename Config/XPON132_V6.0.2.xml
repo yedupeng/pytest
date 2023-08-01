@@ -1,0 +1,108 @@
+<acts>
+	<project>
+		<execute>zxic</execute>
+		<version>7.28.0.1</version>
+		<model>P22XG</model>
+		<product>P22XG</product>
+		<chip>ZX279132</chip>
+		<pon>132</pon>
+		<vid>0x01060004</vid>
+		<git_address>git@git.zhkj-rd.cn:enterprise_gateway/zxic_xgpon.git</git_address>
+		<git_branch>CMCC_JICAI_2022_V6.0.2</git_branch>
+		<docker_name>ONU</docker_name>
+		<telnet_ip>192.168.1.1</telnet_ip>
+		<telnet_port>23</telnet_port>
+		<telnet_username>admin</telnet_username>
+		<telnet_password>chzhdpl@246</telnet_password>
+		<serial_username>root</serial_username>
+		<serial_password>aDm8H%MdA</serial_password>
+		<serial_baud_rate>115200</serial_baud_rate>
+		<serial_bytesize>8</serial_bytesize>
+		<serial_parity>N</serial_parity>
+		<serial_stop_bits>1</serial_stop_bits>
+		<web_address>http://192.168.1.1</web_address>
+		<web_username>CMCCAdmin</web_username>
+		<web_password>aDm8H%MdA</web_password>
+	</project>
+	<stage type='major' enable='1' name='编译'>
+		<project_clone enable='1' name='克隆项目'/>
+		<project_copy enable='0' name='复制项目'>
+			<temp_path>/mnt/sda1_newdisk/work/1RAW/ZXIC_XPON132_JICAI</temp_path>
+		</project_copy>
+		<project_mkdir enable='1' name='生成编译所需文件夹' />
+		<update_version enable='1' name='更新软件版本号' />
+		<project_compile enable='1' name='编译软件版本' />
+		<project_compile enable='1' name='编译软件版本-修复USB问题' />
+		<project_pack enable='1' name='打包编译软件版本' />
+		<update_version enable='1' name='更新安全版本号' >
+			<sec />
+		</update_version>
+		<project_compile enable='1' name='编译安全版本' />
+		<project_pack enable='1' name='打包安全软件版本'>
+			<sec />
+		</project_pack>
+		<update_version enable='1' name='更新对比版本号' >
+			<cmp />
+		</update_version>
+		<project_compile enable='1' name='编译对比版本' />
+		<project_pack enable='1' name='打包对比软件版本'>
+			<cmp />
+		</project_pack>
+		<project_rename enable='1' name='重命名软件版本' />
+	</stage>
+	<stage type='major' enable='1' name='升级'>
+		<update_chromedriver enable='1' name='升级Chrome驱动' />
+		<check_telnet enable='1' name='检测Telnet' />
+		<backup_device_info enable='1' name='备份设备信息' />
+		<upgrade_device enable='1' name='升级设备' />
+	</stage>
+	<stage type='major' enable='1' name='测试'>
+		<update_chromedriver enable='1' name='升级Chrome驱动' />
+		<check_telnet enable='1' name='检测Telnet' />
+		<close_quick_register enable='1' name='关闭强制跳转' />
+		<test_production enable='1' name='生产测试' />
+		<close_quick_register enable='1' name='关闭强制跳转' />
+		<test_pppoe enable='1' name='PPPOE测试' />
+		<test_dhcp enable='1' name='DHCP测试' />
+		<test_static enable='1' name='STATIC测试' />
+		<test_web_upgrade enable='0' name='Web页面升级测试' />
+	</stage>
+	<stage type='major' enable='1' name='文档'>
+		<output_device_info enable='0' name='获取设备信息' />
+		<output_excel_test_report enable='1' name='生成测试报告列表' />
+		<output_word_test_item enable='1' name='生成提测事项表'>
+			<temp_docx>doc/MTK_TEST_ITEM.docx</temp_docx>
+			<replace_word>
+				<test_start_date>2022-12-01 9:00</test_start_date>
+				<test_device>MTK7529</test_device>
+				<docker_name>默认</docker_name>
+			</replace_word>
+		</output_word_test_item>
+		<output_word_version_descript enable='0' name='生成版本描述文件'>
+			<first_version_commit_id>
+				a5788025a8b44da97a50416ee5b828da4b9ebe3c
+			</first_version_commit_id>
+			<temp_docx>doc/MTK_VERSION_DESCRIPT.docx</temp_docx>
+			<replace_word>
+				<author>潘浩</author>
+				<publish_reason>
+	1. ACTS测试；
+				</publish_reason>
+				<publish_description>
+	1. ACTS测试；
+				</publish_description>
+				<test_advice>
+	1. ACTS测试；
+				</test_advice>
+			</replace_word>
+		</output_word_version_descript>
+		<output_excel_file_list enable='1' name='生成提测文件列表' />
+	</stage>
+	<stage type='finally' enable='1' name='通知'>
+		<send_mail enable='1' name='发送结果邮件'>
+			<mail>panhao@star-net.cn</mail>
+			<mail>lintingfeng@star-net.cn</mail>
+			<mail>dengbizeng@star-net.cn</mail>
+		</send_mail>
+	</stage>
+</acts>

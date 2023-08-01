@@ -1,0 +1,17 @@
+# @FileName：status_deviceinfo_baseinfo.yaml
+# @Description：状态-设备信息-设备基本信息页页面元素
+# @Author：Huang Junxiong
+# @Time：2023/6/30 下午12:02
+# @Department：测试组
+
+
+设备型号: "xpath==//span[text()=\"设备型号\"]/following::span[1]"
+设备制造商名称: "xpath==//span[text()=\"设备制造商名称\"]/following::span[1]"
+PON的序列号: "xpath==//span[text()=\"PON的序列号\"]/following::span[1]"
+软件版本: "xpath==//span[text()=\"软件版本\"]/following::span[1]"
+硬件版本: "xpath==//span[text()=\"硬件版本\"]/following::span[1]"
+MAC地址: "xpath==//span[text()=\"MAC地址\"]/following::span[1]"
+运行时间: "xpath==//span[text()=\"运行时间\"]/following::span[1]"
+当前上行端口类型: "xpath==//span[text()=\"当前上行端口类型\"]/following::span[1]"
+CPU占用率: "xpath==//span[text()=\"CPU占用率\"]/following::span[1]"
+内存占用率: "xpath==//span[text()=\"内存占用率\"]/following::span[1]"

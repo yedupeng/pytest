@@ -1,0 +1,12 @@
+<acts>
+	<environment>
+		<path>/mnt/sda1_newdisk/work/0VERSION</path>
+		<docker_path>/var/work/0VERSION</docker_path>
+		<su_password>123123</su_password>
+		<tftp_path>/srv/tftp</tftp_path>
+		<serial_port>/dev/ttyUSB0</serial_port>
+		<web_pppoe_username>cnk</web_pppoe_username>
+		<web_pppoe_password>cnk</web_pppoe_password>
+		<web_pon_password>test07</web_pon_password>
+	</environment>
+</acts>

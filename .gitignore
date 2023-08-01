@@ -1,0 +1,11 @@
+*.pyc
+
+.git/
+.idea/
+AllureResults/
+Logs/
+Report/
+Results/
+failures
+
+__pycache__/

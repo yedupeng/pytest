@@ -1,0 +1,13 @@
+# @FileName：telnet.yaml
+# @Description：安全-Telnet配置页面元素
+# @Author：Huang Junxiong
+# @Time：2023/7/31 上午10:46
+# @Department：测试组
+
+WAN侧Telnet开关: "xpath==//*[@data-test-id=\"WanEnable\"]"
+LAN侧Telnet开关: "xpath==//*[@data-test-id=\"LanEnable\"]"
+Telnet用户名: "xpath==//*[@data-test-id=\"Username\"]"
+Telnet密码: "xpath==//*[@data-test-id=\"Password\"]"
+Telnet端口: "xpath==//*[@data-test-id=\"Port\"]"
+确定: "xpath==//span[text()=\"确 定\"]"
+取消: "xpath==//span[text()=\"取 消\"]"

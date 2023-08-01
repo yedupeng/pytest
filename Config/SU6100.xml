@@ -1,0 +1,130 @@
+<acts>
+	<project>
+		<execute>zxic</execute>
+		<version>5.21.0.18</version>
+		<boot_version>3.4.1</boot_version>
+		<osgi_version>4.4.8</osgi_version>
+		<model>SU6X00</model>
+		<product>SU6X00</product>
+		<chip>ZX279128S</chip>
+		<pon>STARNET</pon>
+		<vid>0x00040003</vid>
+		<path>/mnt/newdisk/work</path>
+		<tftp_path>/srv/tftp</tftp_path>
+		<su_password>123456</su_password>
+		<git_address>git@git.zhkj-rd.cn:enterprise_gateway/zxic.git</git_address>
+		<git_branch>intellect_sdk07_software</git_branch>
+		<description_name>Description_CMCC_SMART</description_name>
+		<boot_name>uboot.bin</boot_name>
+		<docker_name>ONU</docker_name>
+		<docker_path>/var/work</docker_path>
+		<telnet_ip>192.168.1.1</telnet_ip>
+		<telnet_port>23</telnet_port>
+		<telnet_username>admin</telnet_username>
+		<telnet_password>chzhdpl@246</telnet_password>
+		<telnet_su_password>aDm8H%MdA</telnet_su_password>
+		<serial_username>root</serial_username>
+		<serial_password>aDm8H%MdA</serial_password>
+		<serial_port>/dev/ttyUSB0</serial_port>
+		<serial_baud_rate>115200</serial_baud_rate>
+		<serial_bytesize>8</serial_bytesize>
+		<serial_parity>N</serial_parity>
+		<serial_stop_bits>1</serial_stop_bits>
+		<web_address>http://192.168.1.1/</web_address>
+		<web_username>CMCCAdmin</web_username>
+		<web_password>aDm8H%MdA</web_password>
+		<web_pon_password>test11</web_pon_password>
+	</project>
+	<stage type='major' enable='0' name='编译'>
+		<project_clone enable='0' name='克隆项目'/>
+		<project_copy enable='1' name='复制项目'>
+			<temp_path>/mnt/newdisk/work/intellect_sdk07_software</temp_path>
+		</project_copy>
+		<update_version enable='1' name='更新版本号'>
+			<boot_path>/compatible_branch/make/config_cmcc/6100/Description_CMCC_SMART</boot_path>
+			<osgi_path>/compatible_branch/osgi_plugin/osgi_zq/local/OsgiLocal_ver</osgi_path>
+		</update_version>
+		<project_compile enable='1' name='编译项目'/>
+	</stage>
+	<stage type='major' enable='1' name='升级'>
+		<backup_device_file enable='1' name='备份无线与光校准参数'>
+			<type>backup</type>
+			<tftp_server_ip>192.168.1.100</tftp_server_ip>
+			<backup_file_name>tftp_backup.tar.gz</backup_file_name>
+			<backup_path>wlan</backup_path>
+			<backup_path>userconfig/GN25L95_datas_backup</backup_path>
+		</backup_device_file>
+		<backup_device_info enable='1' name='备份设备信息' />
+		<device_wipe_and_upgrade enable='1' name='擦除并升级设备'>
+			<serial_log_path>/home/cnk/桌面</serial_log_path>
+		</device_wipe_and_upgrade>
+		<backup_device_file enable='1' name='恢复无线与光校准参数'>
+			<type>recovery</type>
+			<tftp_server_ip>192.168.1.100</tftp_server_ip>
+			<backup_file_name>tftp_backup.tar.gz</backup_file_name>
+			<backup_path>wlan</backup_path>
+			<backup_path>userconfig/GN25L95_datas_backup</backup_path>
+		</backup_device_file>
+	</stage>
+	<stage type='skip' enable='1' name='测试'>
+		<test_production enable='1' name='生产测试' />
+		<test_pppoe enable='1' name='PPPOE测试' />
+		<test_dhcp enable='1' name='DHCP测试' />
+		<test_static enable='1' name='STATIC测试' />
+		<test_web_upgrade enable='1' name='Web页面升级测试'>
+			<bin_default>_UPGRADE_BOOTLDR.bin</bin_default>
+			<bin>.cmp_UPGRADE_BOOTLDR.bin</bin>
+			<bin>.cmp__UPGRADE_BOOTLDR_ALL.bin</bin>
+		</test_web_upgrade>
+	</stage>
+	<stage type='skip' enable='1' name='文档'>
+		<output_excel_test_report enable='1' name='生成测试报告列表' />
+		<output_word_test_item enable='1' name='生成提测事项表'>
+			<temp_docx>template/SU6X00_TEST_ITEM.docx</temp_docx>
+			<replace_word>
+				<test_start_date>2022-04-01 9:00</test_start_date>
+				<test_device>SU6100</test_device>
+				<docker_name>默认</docker_name>
+			</replace_word>
+		</output_word_test_item>
+		<output_word_version_descript enable='1' name='生成版本描述文件'>
+			<first_version_commit_id>
+				7c3a2cdb181408506c3eaca548f565f32be61801
+			</first_version_commit_id>
+			<temp_docx>template/SU6X00_VERSION_DESCRIPT.docx</temp_docx>
+			<replace_word>
+				<author>潘浩</author>
+				<publish_reason>
+	1. ACTS测试；
+	2. ACTS测试；
+	3. ACTS测试；
+	4. ACTS测试；
+	5. ACTS测试；
+				</publish_reason>
+				<publish_description>
+	1. ACTS测试；
+	2. ACTS测试；
+	3. ACTS测试；
+	4. ACTS测试；
+	5. ACTS测试；
+				</publish_description>
+				<test_advice>
+	1. ACTS测试；
+	2. ACTS测试；
+	3. ACTS测试；
+	4. ACTS测试；
+	5. ACTS测试；
+				</test_advice>
+			</replace_word>
+		</output_word_version_descript>
+		<output_excel_file_list enable='1' name='生成提测文件列表' />
+		<project_pack enable='1' name='打包提测文件和文档' />
+	</stage>
+	<stage type='finally' enable='1' name='通知'>
+		<send_mail enable='1' name='发送结果邮件'>
+			<mail>panhao@star-net.cn</mail>
+			<mail>lintingfeng@star-net.cn</mail>
+			<mail>dengbizeng@star-net.cn</mail>
+		</send_mail>
+	</stage>
+</acts>
