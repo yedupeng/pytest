@@ -1,0 +1,46 @@
+宽带电话协议: "xpath==//*[@data-test-id=\"SipProtocol\"]"
+注册服务器: "xpath==//*[@data-test-id=\"registarServerEnable\"]"
+注册服务器地址: "xpath==//*[@data-test-id=\"RegistarServerAddr\"]"
+注册服务器端口: "xpath==//*[@data-test-id=\"RegistarServerPort\"]"
+
+备用注册服务器: "xpath==//*[@data-test-id=\"standbyRegistarServerEnable\"]"
+备用注册服务器地址: "xpath==//*[@data-test-id=\"StandbyRegistarServerAddr\"]"
+备用注册服务器端口: "xpath==//*[@data-test-id=\"StandbyRegistarServerPort\"]"
+
+Outbound代理服务器: "xpath==//*[@data-test-id=\"outboundProxyEnable\"]"
+Outbound代理服务器地址: "xpath==//*[@data-test-id=\"OutboundProxyAddr\"]"
+Outbound代理服务器端口: "xpath==//*[@data-test-id=\"OutboundProxyPort\"]"
+
+备用Outbound代理服务器: "xpath==//*[@data-test-id=\"standbyOutboundProxyEnable\"]"
+备用Outbound代理服务器地址: "xpath==//*[@data-test-id=\"StandbyOutboundProxyAddr\"]"
+备用Outbound代理服务器端口: "xpath==//*[@data-test-id=\"StandbyOutboundProxyPort\"]"
+
+
+账号1启用: "xpath==//*[@data-test-id=\"0_AccountEnable\"]"
+账号1号码: "xpath==//*[@data-test-id=\"0_DisplayNumber\"]"
+账号1用户名: "xpath==//*[@data-test-id=\"0_DisplayName\"]"
+账号1认证名: "xpath==//*[@data-test-id=\"0_AuthName\"]"
+账号1密码: "xpath==//*[@data-test-id=\"0_AuthPassword\"]"
+
+账号2启用: "xpath==//*[@data-test-id=\"1_AccountEnable\"]"
+账号2号码: "xpath==//*[@data-test-id=\"1_DisplayNumber\"]"
+账号2用户名: "xpath==//*[@data-test-id=\"1_DisplayName\"]"
+账号2认证名: "xpath==//*[@data-test-id=\"1_AuthName\"]"
+账号2密码: "xpath==//*[@data-test-id=\"1_AuthPassword\"]"
+
+账号3启用: "xpath==//*[@data-test-id=\"2_AccountEnable\"]"
+账号3号码: "xpath==//*[@data-test-id=\"2_DisplayNumber\"]"
+账号3用户名: "xpath==//*[@data-test-id=\"2_DisplayName\"]"
+账号3认证名: "xpath==//*[@data-test-id=\"2_AuthName\"]"
+账号3密码: "xpath==//*[@data-test-id=\"2_AuthPassword\"]"
+
+账号4启用: "xpath==//*[@data-test-id=\"3_AccountEnable\"]"
+账号4号码: "xpath==//*[@data-test-id=\"3_DisplayNumber\"]"
+账号4用户名: "xpath==//*[@data-test-id=\"3_DisplayName\"]"
+账号4认证名: "xpath==//*[@data-test-id=\"3_AuthName\"]"
+账号4密码: "xpath==//*[@data-test-id=\"3_AuthPassword\"]"
+
+G.711 a-law编码优先级: "xpath==//*[@data-test-id=\"0_Priority\"]"
+G.711 u-law编码优先级: "xpath==//*[@data-test-id=\"1_Priority\"]"
+G.729编码优先级: "xpath==//*[@data-test-id=\"2_Priority\"]"
+G.722编码优先级: "xpath==//*[@data-test-id=\"3_Priority\"]"

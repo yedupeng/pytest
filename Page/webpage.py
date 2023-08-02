@@ -7,12 +7,13 @@
 """
 import json
 
+from selenium.common import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from Config.conf import CM
 from Interface.common import Common
 from Utils.logger import LOG
-from Utils.times import sleep
+from Utils.times import sleep, timestamp
 
 
 class WebPage(object):
@@ -62,7 +63,7 @@ class WebPage(object):
         :param locator: 定位器（元素表达式），如 ('id', 'logincode')
         :return: 如果已经被选中返回 True 没有则返回 False
         """
-        return WebPage.element_locator(lambda *args: self.wait.until(EC.presence_of_element_located(args)), locator)\
+        return WebPage.element_locator(lambda *args: self.wait.until(EC.presence_of_element_located(args)), locator) \
             .is_selected()
 
     def find_elements(self, locator):
@@ -71,7 +72,21 @@ class WebPage(object):
         @param locator: 定位器(元素表达式),如 ('id', 'logincode')
         @return:
         """
-        return WebPage.element_locator(lambda *args: self.wait.until(EC.presence_of_all_elements_located(args)), locator)
+        return WebPage.element_locator(lambda *args: self.wait.until(EC.presence_of_all_elements_located(args)),
+                                       locator)
+
+    def wait_element(self, locator, timeout=10):
+        """
+        等待页面元素出现
+        :param locator: 元素定位器
+        :param timeout: 超时时间
+        :return: 元素存在返回钙元素，不存在返回False
+        """
+        try:
+            return WebPage.element_locator(lambda *args: WebDriverWait(self.driver, timeout)
+                                           .until(EC.presence_of_element_located(args)), locator)
+        except TimeoutException:
+            return False
 
     def elements_num(self, locator):
         """
@@ -80,7 +95,7 @@ class WebPage(object):
         @return: 相同元素的个数
         """
         number = len(self.find_elements(locator))
-        LOG.info("相同元素：{}".format((locator,number)))
+        LOG.info("相同元素：{}".format((locator, number)))
         return number
 
     def input_text(self, locator, text):
@@ -126,17 +141,25 @@ class WebPage(object):
         LOG.info("获取元素值:{}".format(_value))
         return _value
 
-    def get_token(self):
+    def get_token(self, timeout=20):
         """
         获取token
+        :return: 超时时间
         :return: token值
         """
+        end_time = timestamp() + timeout
         while True:
             session_storage = json.loads(self.driver.execute_script
-                                        (f'return sessionStorage.getItem("persist:gateway")'))['global']
+                                         (f'return sessionStorage.getItem("persist:gateway")'))['global']
             token = json.loads(session_storage)['token']
-            Common.token = token
-            return token
+            if token:
+                Common.token = token
+                LOG.info("获取登录token:{}".format(token))
+                return token
+            if timestamp() > end_time:
+                raise TimeoutException("获取token超时，session_storage：{}".format(session_storage))
+            sleep(0.5)
+
 
     @property
     def get_source(self):
@@ -144,6 +167,7 @@ class WebPage(object):
         获取网页源代码
         @return: 网页源代码
         """
+        LOG.info("获取网页源代码")
         return self.driver.page_source
 
     def refresh(self):

@@ -46,6 +46,8 @@ class Telnet(object):
         """
         if '# ' in match.decode() or '/ #' in match.decode():
             result = self.telnet_con.read_until(match, timeout=timeout).decode('ascii')
+            if result == '\r\n# ':
+                result = self.telnet_con.read_until(match, timeout=timeout).decode('ascii')
         else:
             result = self.telnet_con.read_until(match, timeout=timeout).decode('ascii') \
                 .replace('\r\n# ', '')
@@ -131,7 +133,7 @@ class Telnet(object):
             elif self.chip_type == "zxic":
                 match = '/ #'
         self.telnet_con.write(f'{command}\n'.encode('ascii') + b'\n')
-        result = self.read_until(match.encode(), timeout=time_out).replace(f'{command}\r\n', '')
+        result = self.read_until(match.encode(), timeout=time_out).replace(f'{command}\r\n', '').replace('\r\n# ', '')
         LOG.info("执行Telnet命令：{}".format(command))
         LOG.info("Telnet命令执行结果：\n{}".format(result))
         return result
@@ -149,5 +151,6 @@ TELNET = Telnet()
 
 if __name__ == '__main__':
     TELNET.login(DEVICES.get('CIOT00059680'))
-    print(TELNET.exec_cmd(command='reboot', match='The system is going down NOW', time_out=20))
+    TELNET.exec_cmd("tcapi show VoIPAdvanced")
+    TELNET.exec_cmd("tcapi get VoIPAdvanced_Common Starnet_callGetMode")
     TELNET.close()

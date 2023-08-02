@@ -18,7 +18,6 @@ from Common.read_config import CONFIG
 from Config.conf import CM
 from Page.PageObject.login import Login
 from Utils.Serial import serial_list, Serial, SERIAL
-from Utils.capture import CAPTURE
 from Utils.logger import LOG
 from Utils.times import sleep, format_allure_time
 
@@ -36,10 +35,8 @@ def case(request):
     LOG.info("---------------用例执行：{}---------------".format(case_name))
     case_name = case_name.split("::")[-1]
     SERIAL.start(case_name)
-    CAPTURE.start(case_name)
 
     def fn():
-        CAPTURE.stop()
         SERIAL.stop()
         LOG.info("---------------用例结束：{}---------------".format(request.keywords.node.nodeid))
 
@@ -72,8 +69,10 @@ def drivers(request):
     login = Login(driver)
     login.get_url(CONFIG.get('Login', 'address'))
     login.web_login()
+
     def fn():
         driver.quit()
+
     request.addfinalizer(fn)
     return driver
 

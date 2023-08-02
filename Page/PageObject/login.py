@@ -65,13 +65,13 @@ class Login(Common):
         :return:
         """
         try:
-            if self.elements_num(LOGIN_PAGE['用户名输入框']):
-                self.input_username(CONFIG.get('Login', 'name'))
-                self.input_password(CONFIG.get('Login', 'password'))
-                self.click_login()
-                return self.get_token()
-        except TimeoutException:
+            token = self.get_token(timeout=5)
             self.enter_quickset_page()
+        except TimeoutException:
+            self.input_username(CONFIG.get('Login', 'name'))
+            self.input_password(CONFIG.get('Login', 'password'))
+            self.click_login()
+            return self.get_token()
 
     @allure.step("web退出")
     def web_loginout(self):

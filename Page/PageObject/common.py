@@ -9,6 +9,7 @@ import allure
 
 from Common.read_element import Element
 from Page.webpage import WebPage
+from Utils.logger import LOG
 
 COMMON = Element('common')
 
@@ -29,19 +30,28 @@ class Common(WebPage):
     def enter_safety_Telnet_page(self):
         self.is_click(COMMON['安全'])
         self.is_click(COMMON['安全-Telnet配置'])
-    
-    @allure.step("进入应用-语音接口配置-配置页面-宽带电话高级设置")
-    def enter_voip_Senior_page(self):
+
+    @allure.step("获取页面弹窗")
+    def get_popup(self, timeout=5):
+        message =  self.wait_element(locator=COMMON['页面弹窗'], timeout=timeout).text
+        LOG.info("页面弹窗提示：{}".format(message))
+        return message
+
+    @allure.step("进入应用-语音接口配置-宽带电话基本设置页面")
+    def enter_voice_base_page(self):
         self.is_click(COMMON['应用'])
-        self.is_click(COMMON['语音接口配置'])
-        self.is_click(COMMON['宽带电话高级设置'])
+        self.is_click(COMMON['应用-语音接口配置'])
+        self.is_click(COMMON['应用-语音接口配置-宽带电话基本设置'])
 
-    @allure.step("进入网络-新建网络连接")
-    def enter_web_wan_internet_VOIP(self):
-        self.is_click(COMMON["网络"])
-        self.is_click(COMMON["网络-WAN接口配置"])
-        self.is_click(COMMON["网络-WAN接口配置-Internet连接"])
-        self.is_click(COMMON["网络-wan连接列表"])
-        self.is_click(COMMON["网络-VOIP"])
+    @allure.step("进入应用-语音接口配置-宽带电话高级设置页面")
+    def enter_voice_advanced_page(self):
+        self.is_click(COMMON['应用'])
+        self.is_click(COMMON['应用-语音接口配置'])
+        self.is_click(COMMON['应用-语音接口配置-宽带电话高级设置'])
 
-    
+    @allure.step("进入应用-语音接口配置-宽带电话数图设置页面")
+    def enter_voice_graph_page(self):
+        self.is_click(COMMON['应用'])
+        self.is_click(COMMON['应用-语音接口配置'])
+        self.is_click(COMMON['应用-语音接口配置-宽带电话数图设置'])
+
