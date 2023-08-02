@@ -55,3 +55,17 @@ class Common(WebPage):
         self.is_click(COMMON['应用-语音接口配置'])
         self.is_click(COMMON['应用-语音接口配置-宽带电话数图设置'])
 
+    @allure.step("进入应用-语音接口配置-配置页面-宽带电话高级设置")
+    def enter_voip_Senior_page(self):
+        self.is_click(COMMON['应用'])
+        self.is_click(COMMON['语音接口配置'])
+        self.is_click(COMMON['宽带电话高级设置'])
+
+    @allure.step("进入网络-新建网络连接")
+    def enter_web_wan_internet_VOIP(self):
+        self.is_click(COMMON["网络"])
+        self.is_click(COMMON["网络-WAN接口配置"])
+        self.is_click(COMMON["网络-WAN接口配置-Internet连接"])
+        self.is_click(COMMON["网络-wan连接列表"])
+        self.is_click(COMMON["网络-VOIP"])
+

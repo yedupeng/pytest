@@ -55,6 +55,9 @@
 网络-VLAN: "xpath==//*[contains(@data-menu-id,\"network-vlan-popup\")]"
 网络-VLAN-VLAN配置: "xpath==//*[contains(@data-menu-id,\"network-vlan-set\")]"
 网络-VLAN-端口VLAN: "xpath==//*[contains(@data-menu-id,\"network-vlan-port\")]"
+
+网络-wan连接列表: "xpath==/html/body/div[1]/div/div[3]/div[2]/section/main/div/form/div[2]/div[1]/div/div/div[2]/div/div/div"
+网络-VOIP: "xpath==/html/body/div[1]/div/div[3]/div[2]/section/main/div/form/div[2]/div[1]/div/div/div[2]/div/div/div/div/span[2]"
 # 菜单-安全
 安全: "xpath==//*[@data-test=\"security\"]"
 安全-网址过滤: "xpath==//*[contains(@data-menu-id,\"security-url\")]"
@@ -156,3 +159,6 @@
 插件管理: "xpath==//*[@data-test=\"plugin\"]"
 插件管理-插件管理: "xpath==//*[contains(@data-menu-id,\"plugin-manager\")]"
 
+应用: "xpath==//*[@data-test=\"apply\"]"
+语音接口配置: "xpath==/html/body/div[1]/div/div[3]/div[1]/div[2]/ul/li[4]/div/span"
+宽带电话高级设置: "xpath==/html/body/div[1]/div/div[3]/div[1]/div[2]/ul/li[4]/ul/li[2]/span"
