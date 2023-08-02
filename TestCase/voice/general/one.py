@@ -8,7 +8,10 @@ from Utils.telnet import TELNET
 from Utils.times import dt_strftime, sleep
 from Page.PageObject.common import Common
 from Page.PageObject.login import Login
+from Common.read_element import Element
 from Page.PageObject.voip_sip_basic_form_CallGetMode import voipsipbasicformCallGetMode
+
+COMMON = Element('common')
 
 @allure.feature("语音")
 class Testvoice_general_1:
@@ -16,7 +19,6 @@ class Testvoice_general_1:
     @allure.title("来显号码获取方式检查")
     @allure.description("web设备基本信息正确\n执行时间：%s" % dt_strftime())
     @pytest.mark.核心用例
-
     def test_voice_caller_id(self, drivers):
         self.ip = "192.168.1.1"
         self.pwd = "ceshi@123"
@@ -38,4 +40,14 @@ class Testvoice_general_1:
         LOG.info("---------------------------Cid_value:{}--------------------------------".format(Cid_value))
         
 
+    @allure.title("打接电话测试")
+    @allure.description("web设备基本信息正确\n执行时间：%s" % dt_strftime())
+    @pytest.mark.核心用例  
+    def test_voice_call(self, drivers):
+        common = Common(drivers)
+        common.enter_web_wan_internet_VOIP()
         
+
+
+
+     

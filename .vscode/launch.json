@@ -6,14 +6,20 @@
     "configurations": [
         
         {
-            "name": "Python: 当前文件",
+            "name": "PyTest",
             "type": "python",
             "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal",
-            "justMyCode": true,
-            "env": {"PYTHONPATH":"${workspaceRoot}"},
-            "envFile": "${workspaceFolder}/.env"
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "module": "pytest",
+            "args": [
+                "-sv",
+                "--disable-pytest-warnings",
+                "--html=report.html"
+            ],
+            "cwd": "${workspaceRoot}",
+            "env": {},
+            "envFile": "${workspaceRoot}/.env"
         }
     ]
 }
