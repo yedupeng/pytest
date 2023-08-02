@@ -13,7 +13,6 @@ from Common.read_devices import DEVICES
 from Page.PageObject.voip_sip_basic_form_CallGetMode import voipsipbasicformCallGetMode
 
 COMMON = Element('common')
-
 @allure.feature("语音")
 class Testvoice_general_1:
 
@@ -40,7 +39,18 @@ class Testvoice_general_1:
     @pytest.mark.核心用例  
     def test_voice_call(self, drivers):
         common = Common(drivers)
-        common.enter_web_wan_internet_VOIP()
+        common.enter_web_wan_internet()
+        common.create_voip_wan()
+        common.enter_voip_Basic_page()
+        common.enable_voip1()
+        common.enable_voip2()
+        common.use_para_voip()
+        common.register_para_voip()
+        common.enter_state_voip()
+        data1, data2 = common.get_table_content(COMMON["业务注册状态"], 1)
+        LOG.info("---data1-:{}----data2:-{}--".format(data1,data2))
+
+
         
 
 

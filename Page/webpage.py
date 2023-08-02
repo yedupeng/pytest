@@ -12,8 +12,11 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from Config.conf import CM
 from Interface.common import Common
+from selenium.webdriver.common.keys import Keys
 from Utils.logger import LOG
 from Utils.times import sleep, timestamp
+from selenium.webdriver.common.by import By
+from selenium import webdriver
 
 
 class WebPage(object):
@@ -107,6 +110,8 @@ class WebPage(object):
         """
         sleep(0.5)
         element = self.find_element(locator)
+        element.send_keys(Keys.CONTROL,"a")#光标向右移方便删除
+        element.send_keys(Keys.DELETE)#删除键
         element.clear()
         element.send_keys(text)
         LOG.info("输入文本：{}".format(text))
@@ -178,3 +183,21 @@ class WebPage(object):
         self.driver.refresh()
         self.driver.implicitly_wait(30)
         LOG.info("刷新页面")
+
+    def click_by_xpath(self, locator):
+        a = self.find_element(locator)
+        self.driver.execute_script("arguments[0].click();", a)
+
+    def get_table_content(self, locator, i):
+        table = self.find_elements(locator)[0]
+        res = {}
+        tds = table.find_elements_by_tag_name('td')
+        for i,td in enumerate(tds):
+            res[i] = td
+
+        table1 = self.find_elements(locator)[1]
+        res1 = {}
+        tds1 = table1.find_elements_by_tag_name('td')
+        for i,td in enumerate(tds1):
+            res1[i] = td
+        return res,res1

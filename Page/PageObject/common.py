@@ -10,9 +10,9 @@ import allure
 from Common.read_element import Element
 from Page.webpage import WebPage
 from Utils.logger import LOG
-
+from Utils.times import sleep
+from Common.read_config import CONFIG
 COMMON = Element('common')
-
 
 class Common(WebPage):
 
@@ -60,12 +60,56 @@ class Common(WebPage):
         self.is_click(COMMON['应用'])
         self.is_click(COMMON['语音接口配置'])
         self.is_click(COMMON['宽带电话高级设置'])
+    
+    @allure.step("进入应用-语音接口配置-配置页面-宽带电话基础设置")
+    def enter_voip_Basic_page(self):
+        self.is_click(COMMON['应用'])
+        self.is_click(COMMON['语音接口配置'])
+        self.is_click(COMMON['应用-语音接口配置-宽带电话基本设置'])
+
+    allure.step("进入应用-语音接口配置-配置页面-启用语音1")
+    def enable_voip1(self):
+        self.is_click(COMMON["应用-语音接口配置-宽带电话基本设置-启用1"])
+    
+    allure.step("进入应用-语音接口配置-配置页面-启用语音2")
+    def enable_voip2(self):
+        self.is_click(COMMON["应用-语音接口配置-宽带电话基本设置-启用2"])
+    
+    allure.step("进入应用-语音接口配置-配置页面-应用配置")
+    def use_para_voip(self):
+        self.click_by_xpath(COMMON["应用-语音接口配置-宽带电话基本设置-应用"])
+    
+    allure.step("进入应用-语音接口配置-配置页面-注册配置")
+    def register_para_voip(self):
+        self.click_by_xpath(COMMON["应用-语音接口配置-宽带电话基本设置-注册"])
+        
 
     @allure.step("进入网络-新建网络连接")
-    def enter_web_wan_internet_VOIP(self):
+    def enter_web_wan_internet(self):
         self.is_click(COMMON["网络"])
         self.is_click(COMMON["网络-WAN接口配置"])
         self.is_click(COMMON["网络-WAN接口配置-Internet连接"])
         self.is_click(COMMON["网络-wan连接列表"])
-        self.is_click(COMMON["网络-VOIP"])
+
+    allure.step("进入网络-新建网络连接-创建voip连接")
+    def create_voip_wan(self):
+        self.is_click(COMMON["网络-新建waln"])
+        self.is_click(COMMON["网络-启用"])
+        self.is_click(COMMON["网络-连接模式"])
+        self.is_click(COMMON["网络-连接模式-路由"])
+        self.is_click(COMMON["承载服务"])
+        self.is_click(COMMON["承载服务-VOIPINTERNET"])
+        self.is_click(COMMON["启用VLAN"])
+        self.is_click(COMMON["启用VLAN-改写"])
+        self.input_text(COMMON["Vlan-ID设置"], CONFIG.get('Wlan', 'voip_vlan_id'))
+        self.click_by_xpath(COMMON["创建"])
+
+    def enter_state_voip(self):
+        self.is_click(COMMON['状态'])
+        self.is_click(COMMON['状态-设备信息'])
+        self.is_click(COMMON['状态-设备信息-语音口状态'])
+
+
+
+
 
