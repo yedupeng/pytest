@@ -72,10 +72,8 @@ def drivers(request):
     login = Login(driver)
     login.get_url(CONFIG.get('Login', 'address'))
     login.web_login()
-
     def fn():
         driver.quit()
-
     request.addfinalizer(fn)
     return driver
 

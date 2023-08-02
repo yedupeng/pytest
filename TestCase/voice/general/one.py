@@ -1,10 +1,13 @@
 import allure
 import pytest
-
+from Utils.logger import LOG
+import sys
+sys.path.append(r"/home/ydp/work/pytest")
 
 from Utils.telnet import TELNET
 from Utils.times import dt_strftime, sleep
 from Page.PageObject.common import Common
+from Page.PageObject.login import Login
 from Page.PageObject.voip_sip_basic_form_CallGetMode import voipsipbasicformCallGetMode
 
 @allure.feature("语音")
@@ -22,16 +25,17 @@ class Testvoice_general_1:
         self.chip_type = "mtk"
         self.cmd1 = "tcapi show VoIPAdvanced"
         self.cmd2 = "tcapi get VoIPAdvanced_Common Starnet_callGetMode"
-
         assert TELNET.telnet_login(self.ip, self.port , self.user, self.pwd,
                                     self.chip_type)
         TELNET.exec_cmd(self.cmd1)
         TELNET.exec_cmd(self.cmd2)
+
         common = Common(drivers)
         common.enter_voip_Senior_page()
 
         voip_sip_basic_form_CallGetMode = voipsipbasicformCallGetMode(drivers)
         Cid_value = voip_sip_basic_form_CallGetMode.get_cid_value()
+        LOG.info("---------------------------Cid_value:{}--------------------------------".format(Cid_value))
         
 
         

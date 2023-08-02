@@ -7,7 +7,7 @@
 """
 import allure
 import pytest
-
+from Utils.logger import LOG
 from Common.read_devices import DEVICES
 from Interface.Manage.reboot import Reboot
 from Page.PageObject.Safety.telnet import Telnet
@@ -25,6 +25,7 @@ class TestSafetyOther:
     def case_init(self, drivers):
         login = Login(drivers)
         login.web_login()
+        LOG.error("--------------------------------\n")
 
     @allure.title("端口安全-页面开关Lan侧Telnet")
     @allure.description("网页开关LAN侧，检查开启，关闭状态，重启验证\n执行时间：%s" % dt_strftime())

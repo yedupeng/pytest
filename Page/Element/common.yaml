@@ -148,4 +148,8 @@
 # 菜单-插件管理
 插件管理: "xpath==//*[@data-test=\"plugin\"]"
 插件管理-插件管理: "xpath==//*[contains(@data-menu-id,\"plugin-manager\")]"
+#
+应用: "xpath==//*[@data-test=\"apply\"]"
+语音接口配置: "xpath==/html/body/div[1]/div/div[3]/div[1]/div[2]/ul/li[4]/div/span"
+宽带电话高级设置: "xpath==/html/body/div[1]/div/div[3]/div[1]/div[2]/ul/li[4]/ul/li[2]/span"
 

@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "env": {"PYTHONPATH": "${workspaceRoot}"}
+      }
+    ],
+    "python.testing.pytestArgs": [
+      "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+  }
