@@ -188,16 +188,11 @@ class WebPage(object):
         a = self.find_element(locator)
         self.driver.execute_script("arguments[0].click();", a)
 
-    def get_table_content(self, locator, i):
-        table = self.find_elements(locator)[0]
-        res = {}
-        tds = table.find_elements_by_tag_name('td')
-        for i,td in enumerate(tds):
-            res[i] = td
-
-        table1 = self.find_elements(locator)[1]
-        res1 = {}
-        tds1 = table1.find_elements_by_tag_name('td')
-        for i,td in enumerate(tds1):
-            res1[i] = td
-        return res,res1
+    def get_table_content(self, locator,i):
+        table = self.find_elements(locator)[i]
+        res = []
+        trs = table.find_elements(By.TAG_NAME,'tr')
+        for tr in trs:
+            arr1 = (tr.text).split(" ")
+            res.append(arr1)
+        return res

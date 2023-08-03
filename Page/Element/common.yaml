@@ -18,7 +18,7 @@
 状态-设备信息: "xpath==//*[contains(@data-menu-id,\"status-device\")]"
 状态-设备信息-设备基本信息: "xpath==//*[contains(@data-menu-id,\"status-device-info\")]"
 状态-设备信息-语音口状态: "xpath==//*[contains(@data-menu-id,\"status-device-voip\")]"
-业务注册状态: "xpath==//*[@class=\"ant-table-wrapper custom-table\"]"
+业务注册状态: "xpath==//*[contains(@class,\"ant-table-tbody\")]"
 状态-设备信息-WAN/PON侧状态: "xpath==//*[contains(@data-menu-id,\"status-device-wanponinfo\")]"
 状态-连接状态: "xpath==//*[contains(@data-menu-id,\"status-connection-popup\")]"
 状态-连接状态-IPv4连接信息: "xpath==//*[contains(@data-menu-id,\"status-connection-ipv4\")]"
