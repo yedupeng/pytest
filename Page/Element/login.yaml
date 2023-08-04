@@ -9,3 +9,4 @@
 密码输入框: "id==logincode"
 登录按钮: "id==loginSubmit"
 设备注册按钮: "id==gotoRegister"
+退出登录按钮: "xpath==//*[@id=\"buttonLogout\"]"

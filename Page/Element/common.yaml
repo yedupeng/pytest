@@ -13,6 +13,7 @@
 快速配置-WAN配置: "xpath==//*[contains(@data-menu-id,\"quickset-wan\")]"
 快速配置-安审配置: "xpath==//*[contains(@data-menu-id,\"quickset-audit\")]"
 快速配置-设备认证: "xpath==//*[contains(@data-menu-id,\"quickset-device-audit\")]"
+
 # 菜单-状态
 状态: "xpath==//*[@data-test=\"status\"]"
 状态-设备信息: "xpath==//*[contains(@data-menu-id,\"status-device\")]"
@@ -30,6 +31,7 @@
 状态-远程管理状态: "xpath==//*[contains(@data-menu-id,\"status-remote\")]"
 状态-远程管理状态-交互建立: "xpath==//*[contains(@data-menu-id,\"status-remote-create\")]"
 状态-远程管理状态-业务配置下发状态: "xpath==//*[contains(@data-menu-id,\"status-remote-setting\")]"
+
 # 菜单-网络
 网络: "xpath==//*[@data-test=\"network\"]"
 网络-WAN接口配置: "xpath==//*[contains(@data-menu-id,\"network-wan\")]"
@@ -72,6 +74,7 @@
 创建: "xpath==//*[contains(@class,\"ant-btn ant-btn-default\")]"
 Vlan-ID设置: "xpath==//*[contains(@id,\"wanForm_VLANIDMark\")]"
 
+
 # 菜单-安全
 安全: "xpath==//*[@data-test=\"security\"]"
 安全-网址过滤: "xpath==//*[contains(@data-menu-id,\"security-url\")]"
@@ -87,6 +90,7 @@ Vlan-ID设置: "xpath==//*[contains(@id,\"wanForm_VLANIDMark\")]"
 安全-安全管理: "xpath==//*[contains(@data-menu-id,\"security-admin-popup\")]"
 安全-安全管理-串口配置: "xpath==//*[contains(@data-menu-id,\"security-admin-serial\")]"
 安全-安全管理-安全启动: "xpath==//*[contains(@data-menu-id,\"security-admin-boot\")]"
+
 # 菜单-应用
 应用: "xpath==//*[@data-test=\"apply\"]"
 应用-高级NAT: "xpath==//*[contains(@data-menu-id,\"apply-nat\")]"
@@ -110,11 +114,40 @@ Vlan-ID设置: "xpath==//*[contains(@id,\"wanForm_VLANIDMark\")]"
 应用-语音接口配置-宽带电话基本设置: "xpath==//*[@data-test-id=\"apply-voip-basic\"]"
 应用-语音接口配置-宽带电话高级设置: "xpath==//*[@data-test-id=\"apply-voip-senior\"]"
 应用-语音接口配置-宽带电话数图设置: "xpath==//*[@data-test-id=\"apply-voip-digital\"]"
+应用-语音接口配置-宽带电话基本设置-宽带电话协议: "xpath==//*[@data-test-id=\"SipProtocol\"]"
+应用-语音接口配置-宽带电话基本设置-宽带电话协议-SIP: "xpath==//*[@title=\"SIP\"]"
+应用-语音接口配置-宽带电话基本设置-宽带电话协议-IMSSIP: "xpath==//*[@title=\"IMSSIP\"]"
+
+应用-语音接口配置-宽带电话基本设置-注册服务器: "xpath==//*[@data-test-id=\"registarServerEnable\"]"
+应用-语音接口配置-宽带电话基本设置-注册服务器地址: "xpath==//*[@data-test-id=\"RegistarServerAddr\"]"
+应用-语音接口配置-宽带电话基本设置-注册服务器端口: "xpath==//*[@data-test-id=\"RegistarServerPort\"]"
+应用-语音接口配置-宽带电话基本设置-代理服务器: "xpath==//*[@data-test-id=\"outboundProxyEnable\"]"
+应用-语音接口配置-宽带电话基本设置-代理服务器地址: "xpath==//*[@data-test-id=\"OutboundProxyAddr\"]"
+应用-语音接口配置-宽带电话基本设置-代理服务器端口: "xpath==//*[@data-test-id=\"OutboundProxyPort\"]"
+应用-语音接口配置-宽带电话基本设置-备用代理服务器: "xpath==//*[@data-test-id=\"standbyOutboundProxyEnable\"]"
+应用-语音接口配置-宽带电话基本设置-备用代理服务器地址: "xpath==//*[@data-test-id=\"StandbyOutboundProxyAddr\"]"
+应用-语音接口配置-宽带电话基本设置-备用代理服务器端口: "xpath==//*[@data-test-id=\"StandbyOutboundProxyPort\"]"
+
+
 应用-语音接口配置-宽带电话基本设置-启用1: "xpath==//*[@data-test-id=\"0_AccountEnable\"]"
 应用-语音接口配置-宽带电话基本设置-启用2: "xpath==//*[@data-test-id=\"1_AccountEnable\"]"
+应用-语音接口配置-宽带电话基本设置-G.711 a-law: "xpath==//*[@data-test-id=\"0_Priority\"]"
+应用-语音接口配置-宽带电话基本设置-G.711 u-law: "xpath==//*[@data-test-id=\"1_Priority\"]"
+应用-语音接口配置-宽带电话基本设置-G.729: "xpath==//*[@data-test-id=\"2_Priority\"]"
+应用-语音接口配置-宽带电话基本设置-G.722: "xpath==//*[@data-test-id=\"3_Priority\"]"
+
 应用-语音接口配置-宽带电话基本设置-应用: "xpath==/html/body/div[1]/div/div[3]/div[2]/section/main/div[2]/div/button[3]"
 应用-语音接口配置-宽带电话基本设置-注册: "xpath==/html/body/div[1]/div/div[3]/div[2]/section/main/div[2]/div/button[1]"
+应用-语音接口配置-宽带电话高级设置-语音编码优先级控制: "xpath==//*[@data-test-id=\"VoiceCodecPriorityCtrl\"]"
+应用-语音接口配置-宽带电话高级设置-来电显示模式: "xpath==//*[@data-test-id=\"CallDisplayMode\"]"
+应用-语音接口配置-宽带电话高级设置-来电显示模式-FSK: "xpath==//*[contains(@title,\"FSK\")]"
+应用-语音接口配置-宽带电话高级设置-来电显示模式-DTMF: "xpath==//*[@title=\"DTMF\"]"
+应用-语音接口配置-宽带电话高级设置-语音编码优先级控制-本地优先: "xpath==//*[contains(@title,\"本地优先\")]"
+应用-语音接口配置-宽带电话高级设置-语音编码优先级控制-远端优先: "xpath==//*[contains(@title,\"远端优先\")]"
+应用-语音接口配置-宽带电话高级设置-确定: "xpath==//*[contains(@id,\"submit\")]"
 应用-语音接口配置-内部短号互拨: "xpath==//*[@data-test-id=\"apply-voip-dial\"]"
+
+
 # 菜单-管理
 管理: "xpath==//*[@data-test=\"admin\"]"
 管理-用户管理: "xpath==//*[contains(@data-menu-id,\"admin-user\")]"
@@ -141,6 +174,7 @@ Vlan-ID设置: "xpath==//*[contains(@id,\"wanForm_VLANIDMark\")]"
 诊断-故障诊断工具-DNS解析: "xpath==//*[contains(@data-menu-id,\"admin-log-info\")]"
 诊断-故障诊断工具-Inform手动上报: "xpath==//*[contains(@data-menu-id,\"admin-log-info\")]"
 诊断-故障诊断工具-httpget测试: "xpath==//*[contains(@data-menu-id,\"admin-log-info\")]"
+
 # 菜单-帮助
 帮助: "xpath==//*[@data-test=\"help\"]"
 帮助-快速配置帮助: "xpath==//*[contains(@data-menu-id,\"help-quickconfig-popup\")]"
@@ -177,6 +211,5 @@ Vlan-ID设置: "xpath==//*[contains(@id,\"wanForm_VLANIDMark\")]"
 插件管理: "xpath==//*[@data-test=\"plugin\"]"
 插件管理-插件管理: "xpath==//*[contains(@data-menu-id,\"plugin-manager\")]"
 
-应用: "xpath==//*[@data-test=\"apply\"]"
 语音接口配置: "xpath==/html/body/div[1]/div/div[3]/div[1]/div[2]/ul/li[4]/div/span"
 宽带电话高级设置: "xpath==/html/body/div[1]/div/div[3]/div[1]/div[2]/ul/li[4]/ul/li[2]/span"

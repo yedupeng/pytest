@@ -122,7 +122,9 @@ class WebPage(object):
         @param locator: 定位器(元素表达式),如 ('id', 'logincode')
         @return:
         """
-        self.find_element(locator).click()
+        element = self.find_element(locator)
+        self.driver.execute_script("arguments[0].scrollIntoView();",element)
+        element.click()
         sleep()
         LOG.info("点击元素:{}".format(locator))
 
@@ -184,10 +186,6 @@ class WebPage(object):
         self.driver.implicitly_wait(30)
         LOG.info("刷新页面")
 
-    def click_by_xpath(self, locator):
-        a = self.find_element(locator)
-        self.driver.execute_script("arguments[0].click();", a)
-
     def get_table_content(self, locator,i):
         table = self.find_elements(locator)[i]
         res = []
@@ -196,3 +194,5 @@ class WebPage(object):
             arr1 = (tr.text).split(" ")
             res.append(arr1)
         return res
+    
+
